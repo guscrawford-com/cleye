@@ -1,7 +1,8 @@
-import { Argument } from "./argument.interface";
-
-export interface Option extends Argument {
+import { Argument, StaticArgument } from "./argument.interface";
+export interface StaticOption extends StaticArgument {
+    spinalCaseName:string;
     flag?:string;
+}
+export interface Option extends Argument, StaticOption {
     camelCaseName:string;
-    value:string;
 }

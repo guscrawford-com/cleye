@@ -1,8 +1,11 @@
-import { Argument } from "./argument.interface";
-import { Option } from "./option.interface";
-
-export interface Command extends Argument {
+import { Argument, StaticArgument } from "./argument.interface";
+import { StaticOption } from "./option.interface";
+export interface StaticCommand extends StaticArgument {
     name:string;
-    options: Option[];
-    args:Argument[];
+    options?:{[key:string]:StaticOption};
+    args?:{[key:string]:StaticArgument};
+}
+export interface Command extends Argument, StaticArgument {
+    options:{[key:string]:StaticOption};
+    args:{[key:string]:StaticArgument};
 }
