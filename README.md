@@ -4,8 +4,6 @@
 
 The un-opnionated cli-library
 
-[📃 Docs](docs/)
-
 ## Off the Cuff Example
 
 ```
@@ -39,7 +37,6 @@ readFile(join(process.cwd(),(command.args.template as any).value),{encoding:'utf
     }
 });
 ```
-
 ## Develop & Contribute
 
 ```
@@ -47,3 +44,7 @@ $>yarn install
 $>yarn build
 $>yarn test
 ```
+
+# 📃 Docs
+
+*Docs are generated on build; see **docs***
