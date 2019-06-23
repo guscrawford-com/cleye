@@ -1,6 +1,6 @@
 # cl👁
 
-**@guscrawford.com/cleye** *kli*
+**@guscrawford.com/cleye** */k'laɪ/*
 
 The un-opnionated cli-library
 
