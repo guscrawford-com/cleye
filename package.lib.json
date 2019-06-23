@@ -1,6 +1,6 @@
 {
   "name": "@guscrawford.com/cleye",
-  "version": "0.0.0",
+  "version": "0.0.1-alpha",
   "description": "An unopinionated cli library",
   "main": "bin/index.js",
   "types":"lib/index.d.ts",
