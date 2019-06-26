@@ -1,6 +1,6 @@
 {
   "name": "@guscrawford.com/cleye",
-  "version": "0.0.1-alpha",
+  "version": "0.0.2-alpha",
   "description": "An unopinionated cli library",
   "main": "index.js",
   "repository": "https://github.com/guscrawford-com/cleye.git",
