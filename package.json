@@ -8,6 +8,7 @@
   "license": "MIT",
   "devDependencies": {
     "@types/jasmine": "^3.3.13",
+    "@types/node": "8",
     "cpy-cli": "^2.0.0",
     "jasmine": "^3.4.0",
     "renamer": "^1.1.2",
@@ -16,10 +17,12 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
-    "docs":"rimraf docs && typedoc --out docs ./src",
-    "package":"yarn build && cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
+    "install":"cd examples && yarn install",
+    "docs": "rimraf docs && typedoc --out docs ./src",
+    "package": "yarn build && cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
     "build": "rimraf dist && tsc",
     "build:test": "tsc -p tsconfig.jasmine.json",
+    "build:examples": "rimraf dist/examples && tsc -p tsconfig.examples.json",
     "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\""
   }
 }
