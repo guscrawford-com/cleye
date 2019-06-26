@@ -2,3 +2,5 @@
 **/dist
 test
 docs
+**/*.log
+examples/bin
