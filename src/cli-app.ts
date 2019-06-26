@@ -1,7 +1,9 @@
 import { RegisteredCommand } from "./registered-command";
 import { StaticCommand } from "./models/command.interface";
-
-
+export const DefaultDefaultCommandName = "default";
+export interface CliAppConfig {
+    defaultCommandName?:string
+}
 export class CliApp {
 
     /**
@@ -17,10 +19,13 @@ export class CliApp {
     public commands:{[key:string]:StaticCommand} = {};
 
     constructor (
-        protected args:string[]
+        protected args:string[],
+        protected options?:CliAppConfig
     ) {
         this.nodeRuntime = args.shift() || this.nodeRuntime;
         this.binRuntime = args.shift() || this.binRuntime;
+        if (!this.options) this.options = {};
+        if (!this.options.defaultCommandName) this.options.defaultCommandName = DefaultDefaultCommandName;
     }
 
     /**
@@ -30,7 +35,7 @@ export class CliApp {
     command (info:StaticCommand):RegisteredCommand {
         this.commands[info.name] = info;
         let commandIndex = this.args.findIndex(a=>a===info.name);
-        if (commandIndex !== -1) {
+        if (commandIndex !== -1 || info.name === (this.options as CliAppConfig).defaultCommandName) {
             let commandInst:RegisteredCommand = new RegisteredCommand(
                 info.name, commandIndex, this.args.slice(commandIndex + 1)
             );
