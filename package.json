@@ -16,8 +16,8 @@
     "typescript": "^3.5.2"
   },
   "scripts": {
-    "package:cleye":"cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
-    "build": "rimraf dist && rimraf docs && typedoc --out docs ./src && tsc && yarn package:cleye",
+    "package":"cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
+    "build": "rimraf dist && rimraf docs && typedoc --out docs ./src && tsc && yarn package",
     "build:test": "tsc -p tsconfig.jasmine.json",
     "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\""
   }
