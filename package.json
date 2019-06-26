@@ -18,6 +18,7 @@
   "scripts": {
     "package:cleye":"cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
     "build": "rimraf dist && rimraf docs && typedoc --out docs ./src && tsc && yarn package:cleye",
-    "test": "tsc -p tsconfig.jasmine.json && jasmine \"test/**/*[sS]pec.js\""
+    "build:test": "tsc -p tsconfig.jasmine.json",
+    "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\""
   }
 }

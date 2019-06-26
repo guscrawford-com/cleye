@@ -3,6 +3,17 @@ import { Argument, ArgumentDirective, StaticArgument } from './models/argument.i
 import { Option, StaticOption } from './models/option.interface';
 const OPTN_PRFX = "--", FLG_PRFX = "-";
 interface OptionIndex {delimeter?:string,index:number,usesCamelCase?:boolean,usesFlag?:boolean,key?:string, value?:string}
+enum ParseStage {
+    Constructing,
+    Options,
+    Arguments
+}
+class CommandDefinitionOrderError extends Error {
+    constructor (parseStage:ParseStage) {
+        super(`CommandDefinitionOrderError: command is not in "${ParseStage[parseStage]}" stage`);
+    }
+    internalStack:string[] = [];
+}
 export class RegisteredCommand implements Command {
     
     args:{[key:string]:StaticArgument} = {};
@@ -12,9 +23,9 @@ export class RegisteredCommand implements Command {
         public index:number,
         protected input:string[]
     ) {
-
+        this.parseStage = ParseStage.Options;
     }
-
+    protected parseStage:ParseStage = ParseStage.Constructing;
     /**
      * Register an option on `this` command
      * @param info A `StaticOption` command option defintion
@@ -22,6 +33,7 @@ export class RegisteredCommand implements Command {
     option(
         info:StaticOption
     ):RegisteredCommand {
+        this.protectCommandDefinitionOrder(ParseStage.Options);
         this.options[info.spinalCaseName] = info;
         let camelCaseName = this.getCamelCase(info.spinalCaseName);
         let optionIndex = this.getOptionIndex(info.spinalCaseName, info.flag);
@@ -32,11 +44,16 @@ export class RegisteredCommand implements Command {
         let optionInst : Option = {
             ... info,
             camelCaseName,
-            index : optionIndex.index
+            index : this.index + optionIndex.index
         }
         this.getOptionValue(optionIndex);
         optionInst.value = optionIndex.value;
-        this.options[optionInst.spinalCaseName] = optionInst;
+        if (this.options[optionInst.spinalCaseName]) delete this.options[optionInst.spinalCaseName];
+        this.options[optionInst.camelCaseName] = optionInst;
+        this.input.splice(optionIndex.index,1);
+        let remainingOptions = this.input.find((x,i)=>this.validFlagOrOptionPrefix(i));
+        if (!remainingOptions)
+            this.parseStage = ParseStage.Arguments;
         return this;
     }
     /**
@@ -44,20 +61,28 @@ export class RegisteredCommand implements Command {
      * @param info A `StaticArgument` command argument defintion
      */
     argument(info:StaticArgument) {
+        this.protectCommandDefinitionOrder(ParseStage.Arguments);
         let argInst =  this.getArgument(info)
         this.args[argInst.name] = (argInst);
         return this;
     }
 
+    protected protectCommandDefinitionOrder(desiredStage:ParseStage) {
+        let commandDefinitionOrderError = new CommandDefinitionOrderError(desiredStage);
+        commandDefinitionOrderError.internalStack = (commandDefinitionOrderError.stack||'').split('\n');
+        commandDefinitionOrderError.stack = commandDefinitionOrderError.internalStack.slice(2).join('\n');
+        if (this.parseStage > desiredStage || this.parseStage <  desiredStage) throw commandDefinitionOrderError;
+    }
+
     protected getArgument(info:StaticArgument) : Argument {
         let argInst: Argument = {
             ... info,
-            index : this.index + Object.keys(this.args).length
+            index:0
         };
         if (this.input[argInst.index])
         switch (info.directive) {
             case 'last':
-                argInst.index = this.index + this.input.length;
+                argInst.index = this.input.length - 1;
                 if (!this.validFlagOrOptionPrefix(argInst.index))
                     argInst.value = this.input.pop();
                 break;
@@ -66,6 +91,7 @@ export class RegisteredCommand implements Command {
                     argInst.value = this.input.shift();
                 break;
         }
+        argInst.index = this.getAbsoluteIndex(argInst.index)
         return argInst;
     }
 
@@ -74,26 +100,26 @@ export class RegisteredCommand implements Command {
         let optionIndex = this.input.findIndex(o=>o===`${FLG_PRFX}${flag}`);
         if (optionIndex !== -1) return {
             delimeter : valueDelimiter,
-            index : this.index + optionIndex,
+            index : this.getAbsoluteIndex(optionIndex),
             usesFlag : true
         };
         optionIndex = this.input.findIndex(o=>o===`${OPTN_PRFX}${name}`);
         if (optionIndex !== -1) return {
             delimeter:valueDelimiter,
-            index:this.index + optionIndex,
+            index: this.getAbsoluteIndex(optionIndex),
             usesCamelCase
         };
         valueDelimiter = '=';
         optionIndex = this.input.findIndex(o=>o.startsWith(`${FLG_PRFX}${flag}${valueDelimiter}`));
         if (optionIndex !== -1) return {
             delimeter : valueDelimiter,
-            index : this.index + optionIndex,
+            index : this.getAbsoluteIndex(optionIndex),
             usesFlag : true
         };
         optionIndex = this.input.findIndex(o=>o.startsWith(`${OPTN_PRFX}${name}${valueDelimiter}`));
         if (optionIndex !== -1) return {
             delimeter : valueDelimiter,
-            index : this.index + optionIndex,
+            index : this.getAbsoluteIndex(optionIndex),
             usesCamelCase
         };
         return null;
@@ -118,6 +144,9 @@ export class RegisteredCommand implements Command {
         return optionIndex;
     }
 
+    protected getAbsoluteIndex(index:number) {
+        return this.index>-0?this.index:0 + index;
+    }
     protected getCamelCase(spinalCaseName:string):string {
         return spinalCaseName.split('-').map(
             (w,i)=>
@@ -128,6 +157,19 @@ export class RegisteredCommand implements Command {
         ).join('');
     }
     
+    protected getSpinalCase(camelCaseName:string) {
+        camelCaseName.split('').map((char,i)=>{
+            let lowerCaseChar = char.toLocaleLowerCase();
+            return lowerCaseChar === char? char : `${i?'-':''}${lowerCaseChar}`;
+        }).join('');
+    }
+    
+    protected validSpinalCase(name:string) {
+        // Check for *uppercase* and *titlecase* across cultures...
+        // https://stackoverflow.com/questions/4050381/regular-expression-for-checking-if-capital-letters-are-found-consecutively-in-a
+        // return /(?![\p{Lu}\p{Lt}])/.test(name); ... not working
+        return !/[A-Z]/.test(name);
+    }
     protected validFlagOrOptionPrefix(inputIndex:number) {
         return this.input[inputIndex].startsWith(FLG_PRFX)
     }
