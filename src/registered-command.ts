@@ -33,7 +33,7 @@ export class RegisteredCommand implements Command {
     option(
         info:StaticOption
     ):RegisteredCommand {
-        this.protectCommandDefinitionOrder(ParseStage.Options);
+        let parseError = this.protectCommandDefinitionOrder(ParseStage.Options);
         this.options[info.spinalCaseName] = info;
         let camelCaseName = this.getCamelCase(info.spinalCaseName);
         let optionIndex = this.getOptionIndex(info.spinalCaseName, info.flag);
@@ -41,6 +41,9 @@ export class RegisteredCommand implements Command {
             optionIndex = this.getOptionIndex(camelCaseName, info.flag, true);
         
         if (!optionIndex) return this;
+
+        if (parseError && optionIndex) throw parseError;
+
         let optionInst : Option = {
             ... info,
             camelCaseName,
@@ -61,7 +64,7 @@ export class RegisteredCommand implements Command {
      * @param info A `StaticArgument` command argument defintion
      */
     argument(info:StaticArgument) {
-        this.protectCommandDefinitionOrder(ParseStage.Arguments);
+        this.parseStage = ParseStage.Arguments;
         let argInst =  this.getArgument(info)
         this.args[argInst.name] = (argInst);
         return this;
@@ -71,7 +74,7 @@ export class RegisteredCommand implements Command {
         let commandDefinitionOrderError = new CommandDefinitionOrderError(desiredStage);
         commandDefinitionOrderError.internalStack = (commandDefinitionOrderError.stack||'').split('\n');
         commandDefinitionOrderError.stack = commandDefinitionOrderError.internalStack.slice(2).join('\n');
-        if (this.parseStage > desiredStage || this.parseStage <  desiredStage) throw commandDefinitionOrderError;
+        if (this.parseStage > desiredStage || this.parseStage <  desiredStage) return commandDefinitionOrderError;
     }
 
     protected getArgument(info:StaticArgument) : Argument {

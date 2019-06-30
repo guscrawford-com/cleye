@@ -23,6 +23,7 @@
     "build": "rimraf dist && tsc",
     "build:test": "tsc -p tsconfig.jasmine.json",
     "build:examples": "rimraf dist/examples && tsc -p tsconfig.examples.json",
-    "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\""
+    "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\"",
+    "release": "yarn package && cd dist && yarn publish --access=public"
   }
 }
