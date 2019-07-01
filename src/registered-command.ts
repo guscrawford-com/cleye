@@ -1,22 +1,29 @@
 import { Command } from './models/command.interface';
-import { Argument, ArgumentDirective, StaticArgument } from './models/argument.interface';
+import { Argument, StaticArgument } from './models/argument.interface';
 import { Option, StaticOption } from './models/option.interface';
 const OPTN_PRFX = "--", FLG_PRFX = "-";
 interface OptionIndex {delimeter?:string,index:number,usesCamelCase?:boolean,usesFlag?:boolean,key?:string, value?:string}
+/** Enumeration of stages a `Command` is in */
 enum ParseStage {
     Constructing,
     Options,
     Arguments
 }
+
+/** Thrown when a command is manually instantiated out-of-order */
 class CommandDefinitionOrderError extends Error {
     constructor (parseStage:ParseStage) {
         super(`CommandDefinitionOrderError: command is not in "${ParseStage[parseStage]}" stage`);
     }
     internalStack:string[] = [];
 }
+
+/** A command that was picked up in input and parsed for it's *args* and *options* if any */
 export class RegisteredCommand implements Command {
-    
+    /** A table of *at least* `StaticArgument`s modeling arguments `this` command *could* be given; will be an instance of `Argument` with a non-negative index and a value if provided as input */
     args:{[key:string]:StaticArgument} = {};
+    
+    /** A table of *at least* `StaticOption`s modeling options `this` command *could* be given; will be an instance of `Option` with a non-negative index and a value if provided as input */
     options:{[key:string]:StaticOption} = {};
     constructor (
         public name:string,

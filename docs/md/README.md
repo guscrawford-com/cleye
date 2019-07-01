@@ -1,3 +1,7 @@
+> **[@guscrawford.com/cleye](README.md)**
+
+[Globals](globals.md) /
+
 # cl👁
 
 **@guscrawford.com/cleye** */k'laɪ/*
