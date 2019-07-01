@@ -43,6 +43,9 @@ export class CliApp {
             if (info.options) for (let option in info.options) {
                 commandInst.option(info.options[option]);
             }
+            if (info.args) for (let arg in info.args) {
+                commandInst.argument(info.args[arg]);
+            }
             return commandInst;
         }
         return new RegisteredCommand(info.name, -1, []);

@@ -1,22 +1,29 @@
 import { Command } from './models/command.interface';
-import { Argument, ArgumentDirective, StaticArgument } from './models/argument.interface';
+import { Argument, StaticArgument } from './models/argument.interface';
 import { Option, StaticOption } from './models/option.interface';
 const OPTN_PRFX = "--", FLG_PRFX = "-";
 interface OptionIndex {delimeter?:string,index:number,usesCamelCase?:boolean,usesFlag?:boolean,key?:string, value?:string}
+/** Enumeration of stages a `Command` is in */
 enum ParseStage {
     Constructing,
     Options,
     Arguments
 }
+
+/** Thrown when a command is manually instantiated out-of-order */
 class CommandDefinitionOrderError extends Error {
     constructor (parseStage:ParseStage) {
         super(`CommandDefinitionOrderError: command is not in "${ParseStage[parseStage]}" stage`);
     }
     internalStack:string[] = [];
 }
+
+/** A command that was picked up in input and parsed for it's *args* and *options* if any */
 export class RegisteredCommand implements Command {
-    
+    /** A table of *at least* `StaticArgument`s modeling arguments `this` command *could* be given; will be an instance of `Argument` with a non-negative index and a value if provided as input */
     args:{[key:string]:StaticArgument} = {};
+    
+    /** A table of *at least* `StaticOption`s modeling options `this` command *could* be given; will be an instance of `Option` with a non-negative index and a value if provided as input */
     options:{[key:string]:StaticOption} = {};
     constructor (
         public name:string,
@@ -33,7 +40,7 @@ export class RegisteredCommand implements Command {
     option(
         info:StaticOption
     ):RegisteredCommand {
-        this.protectCommandDefinitionOrder(ParseStage.Options);
+        let parseError = this.protectCommandDefinitionOrder(ParseStage.Options);
         this.options[info.spinalCaseName] = info;
         let camelCaseName = this.getCamelCase(info.spinalCaseName);
         let optionIndex = this.getOptionIndex(info.spinalCaseName, info.flag);
@@ -41,6 +48,9 @@ export class RegisteredCommand implements Command {
             optionIndex = this.getOptionIndex(camelCaseName, info.flag, true);
         
         if (!optionIndex) return this;
+
+        if (parseError && optionIndex) throw parseError;
+
         let optionInst : Option = {
             ... info,
             camelCaseName,
@@ -61,7 +71,7 @@ export class RegisteredCommand implements Command {
      * @param info A `StaticArgument` command argument defintion
      */
     argument(info:StaticArgument) {
-        this.protectCommandDefinitionOrder(ParseStage.Arguments);
+        this.parseStage = ParseStage.Arguments;
         let argInst =  this.getArgument(info)
         this.args[argInst.name] = (argInst);
         return this;
@@ -71,7 +81,7 @@ export class RegisteredCommand implements Command {
         let commandDefinitionOrderError = new CommandDefinitionOrderError(desiredStage);
         commandDefinitionOrderError.internalStack = (commandDefinitionOrderError.stack||'').split('\n');
         commandDefinitionOrderError.stack = commandDefinitionOrderError.internalStack.slice(2).join('\n');
-        if (this.parseStage > desiredStage || this.parseStage <  desiredStage) throw commandDefinitionOrderError;
+        if (this.parseStage > desiredStage || this.parseStage <  desiredStage) return commandDefinitionOrderError;
     }
 
     protected getArgument(info:StaticArgument) : Argument {
