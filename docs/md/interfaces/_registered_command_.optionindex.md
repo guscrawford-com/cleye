@@ -25,7 +25,7 @@
 
 • **delimeter**? : *undefined | string*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*
 
 ___
 
@@ -33,7 +33,7 @@ ___
 
 • **index**: *number*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*
 
 ___
 
@@ -41,7 +41,7 @@ ___
 
 • **key**? : *undefined | string*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*
 
 ___
 
@@ -49,7 +49,7 @@ ___
 
 • **usesCamelCase**? : *undefined | false | true*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **usesFlag**? : *undefined | false | true*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*
 
 ___
 
@@ -65,4 +65,4 @@ ___
 
 • **value**? : *undefined | string*
 
-*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L5)*
+*Defined in [registered-command.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L5)*

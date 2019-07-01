@@ -27,7 +27,7 @@ The fundamental programmer-provided definition of a `Command` and it's plausible
 
 • **args**? : *undefined | object*
 
-*Defined in [models/command.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/command.interface.ts#L8)*
+*Defined in [models/command.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/command.interface.ts#L8)*
 
 ___
 
@@ -37,7 +37,7 @@ ___
 
 *Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[directive](_models_argument_interface_.staticargument.md#optional-directive)*
 
-*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/argument.interface.ts#L8)*
+*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L8)*
 
 **`deprecated`** in which order to process this argument
 
@@ -49,7 +49,7 @@ ___
 
 *Overrides [StaticArgument](_models_argument_interface_.staticargument.md).[name](_models_argument_interface_.staticargument.md#name)*
 
-*Defined in [models/command.interface.ts:6](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/command.interface.ts#L6)*
+*Defined in [models/command.interface.ts:6](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/command.interface.ts#L6)*
 
 ___
 
@@ -57,4 +57,4 @@ ___
 
 • **options**? : *undefined | object*
 
-*Defined in [models/command.interface.ts:7](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/command.interface.ts#L7)*
+*Defined in [models/command.interface.ts:7](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/command.interface.ts#L7)*

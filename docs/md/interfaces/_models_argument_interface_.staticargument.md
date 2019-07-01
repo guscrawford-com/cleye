@@ -31,7 +31,7 @@ The fundamental programmer-provided definition of an argument a `Command` can re
 
 • **directive**? : *[ArgumentDirective](../modules/_models_argument_interface_.md#argumentdirective)*
 
-*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/argument.interface.ts#L8)*
+*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L8)*
 
 **`deprecated`** in which order to process this argument
 
@@ -41,6 +41,6 @@ ___
 
 • **name**: *string*
 
-*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/c919695/src/models/argument.interface.ts#L10)*
+*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L10)*
 
 A name (in any form) with which to assign and reference this argument on the `<command>.args` table

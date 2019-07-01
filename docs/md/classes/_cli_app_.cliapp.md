@@ -32,7 +32,7 @@
 
 \+ **new CliApp**(`args`: *string[]*, `options?`: *[CliAppConfig](../interfaces/_cli_app_.cliappconfig.md)*): *[CliApp](_cli_app_.cliapp.md)*
 
-*Defined in [cli-app.ts:19](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L19)*
+*Defined in [cli-app.ts:19](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L19)*
 
 **Parameters:**
 
@@ -49,7 +49,7 @@ Name | Type |
 
 • **args**: *string[]*
 
-*Defined in [cli-app.ts:22](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L22)*
+*Defined in [cli-app.ts:22](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L22)*
 
 ___
 
@@ -57,7 +57,7 @@ ___
 
 • **binRuntime**: *string* = ""
 
-*Defined in [cli-app.ts:17](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L17)*
+*Defined in [cli-app.ts:17](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L17)*
 
 The path to the JavaScript entry being run by the node runtime
 
@@ -67,7 +67,7 @@ ___
 
 • **commands**: *object*
 
-*Defined in [cli-app.ts:19](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L19)*
+*Defined in [cli-app.ts:19](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L19)*
 
 #### Type declaration:
 
@@ -79,7 +79,7 @@ ___
 
 • **nodeRuntime**: *string* = ""
 
-*Defined in [cli-app.ts:12](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L12)*
+*Defined in [cli-app.ts:12](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L12)*
 
 The path to the node.exe runtime executing with these arguments
 
@@ -89,7 +89,7 @@ ___
 
 • **options**? : *[CliAppConfig](../interfaces/_cli_app_.cliappconfig.md)*
 
-*Defined in [cli-app.ts:23](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L23)*
+*Defined in [cli-app.ts:23](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L23)*
 
 ## Methods
 
@@ -97,7 +97,7 @@ ___
 
 ▸ **command**(`info`: *[StaticCommand](../interfaces/_models_command_interface_.staticcommand.md)*): *[RegisteredCommand](_registered_command_.registeredcommand.md)*
 
-*Defined in [cli-app.ts:35](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L35)*
+*Defined in [cli-app.ts:35](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L35)*
 
 Register a command on `this` cli
 

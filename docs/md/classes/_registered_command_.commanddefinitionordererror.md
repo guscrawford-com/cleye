@@ -32,7 +32,7 @@ Thrown when a command is manually instantiated out-of-order
 
 \+ **new CommandDefinitionOrderError**(`parseStage`: *[ParseStage](../enums/_registered_command_.parsestage.md)*): *[CommandDefinitionOrderError](_registered_command_.commanddefinitionordererror.md)*
 
-*Defined in [registered-command.ts:14](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L14)*
+*Defined in [registered-command.ts:14](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L14)*
 
 **Parameters:**
 
@@ -48,7 +48,7 @@ Name | Type |
 
 • **internalStack**: *string[]* =  []
 
-*Defined in [registered-command.ts:18](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L18)*
+*Defined in [registered-command.ts:18](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L18)*
 
 ___
 

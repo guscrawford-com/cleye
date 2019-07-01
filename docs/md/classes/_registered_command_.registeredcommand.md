@@ -49,7 +49,7 @@ A command that was picked up in input and parsed for it's *args* and *options* i
 
 \+ **new RegisteredCommand**(`name`: *string*, `index`: *number*, `input`: *string[]*): *[RegisteredCommand](_registered_command_.registeredcommand.md)*
 
-*Defined in [registered-command.ts:27](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L27)*
+*Defined in [registered-command.ts:27](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L27)*
 
 **Parameters:**
 
@@ -69,7 +69,7 @@ Name | Type |
 
 *Implementation of [Command](../interfaces/_models_command_interface_.command.md).[args](../interfaces/_models_command_interface_.command.md#args)*
 
-*Defined in [registered-command.ts:24](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L24)*
+*Defined in [registered-command.ts:24](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L24)*
 
 A table of *at least* `StaticArgument`s modeling arguments `this` command *could* be given; will be an instance of `Argument` with a non-negative index and a value if provided as input
 
@@ -85,7 +85,7 @@ ___
 
 *Implementation of [Command](../interfaces/_models_command_interface_.command.md).[index](../interfaces/_models_command_interface_.command.md#index)*
 
-*Defined in [registered-command.ts:30](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L30)*
+*Defined in [registered-command.ts:30](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L30)*
 
 ___
 
@@ -93,7 +93,7 @@ ___
 
 • **input**: *string[]*
 
-*Defined in [registered-command.ts:31](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L31)*
+*Defined in [registered-command.ts:31](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L31)*
 
 ___
 
@@ -103,7 +103,7 @@ ___
 
 *Implementation of [Command](../interfaces/_models_command_interface_.command.md).[name](../interfaces/_models_command_interface_.command.md#name)*
 
-*Defined in [registered-command.ts:29](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L29)*
+*Defined in [registered-command.ts:29](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L29)*
 
 ___
 
@@ -113,7 +113,7 @@ ___
 
 *Implementation of [Command](../interfaces/_models_command_interface_.command.md).[options](../interfaces/_models_command_interface_.command.md#options)*
 
-*Defined in [registered-command.ts:27](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L27)*
+*Defined in [registered-command.ts:27](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L27)*
 
 A table of *at least* `StaticOption`s modeling options `this` command *could* be given; will be an instance of `Option` with a non-negative index and a value if provided as input
 
@@ -127,7 +127,7 @@ ___
 
 • **parseStage**: *[ParseStage](../enums/_registered_command_.parsestage.md)* =  ParseStage.Constructing
 
-*Defined in [registered-command.ts:35](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L35)*
+*Defined in [registered-command.ts:35](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L35)*
 
 ## Methods
 
@@ -135,7 +135,7 @@ ___
 
 ▸ **argument**(`info`: *[StaticArgument](../interfaces/_models_argument_interface_.staticargument.md)*): *`this`*
 
-*Defined in [registered-command.ts:73](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L73)*
+*Defined in [registered-command.ts:73](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L73)*
 
 Register an argument on `this` command
 
@@ -153,7 +153,7 @@ ___
 
 ▸ **getAbsoluteIndex**(`index`: *number*): *number*
 
-*Defined in [registered-command.ts:157](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L157)*
+*Defined in [registered-command.ts:157](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L157)*
 
 **Parameters:**
 
@@ -169,7 +169,7 @@ ___
 
 ▸ **getArgument**(`info`: *[StaticArgument](../interfaces/_models_argument_interface_.staticargument.md)*): *[Argument](../interfaces/_models_argument_interface_.argument.md)*
 
-*Defined in [registered-command.ts:87](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L87)*
+*Defined in [registered-command.ts:87](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L87)*
 
 **Parameters:**
 
@@ -185,7 +185,7 @@ ___
 
 ▸ **getCamelCase**(`spinalCaseName`: *string*): *string*
 
-*Defined in [registered-command.ts:160](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L160)*
+*Defined in [registered-command.ts:160](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L160)*
 
 **Parameters:**
 
@@ -201,7 +201,7 @@ ___
 
 ▸ **getOptionIndex**(`name`: *string*, `flag?`: *undefined | string*, `usesCamelCase`: *boolean*): *[OptionIndex](../interfaces/_registered_command_.optionindex.md) | null*
 
-*Defined in [registered-command.ts:108](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L108)*
+*Defined in [registered-command.ts:108](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L108)*
 
 **Parameters:**
 
@@ -219,7 +219,7 @@ ___
 
 ▸ **getOptionValue**(`optionIndex`: *[OptionIndex](../interfaces/_registered_command_.optionindex.md)*): *[OptionIndex](../interfaces/_registered_command_.optionindex.md)*
 
-*Defined in [registered-command.ts:138](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L138)*
+*Defined in [registered-command.ts:138](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L138)*
 
 **Parameters:**
 
@@ -235,7 +235,7 @@ ___
 
 ▸ **getSpinalCase**(`camelCaseName`: *string*): *void*
 
-*Defined in [registered-command.ts:170](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L170)*
+*Defined in [registered-command.ts:170](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L170)*
 
 **Parameters:**
 
@@ -251,7 +251,7 @@ ___
 
 ▸ **option**(`info`: *[StaticOption](../interfaces/_models_option_interface_.staticoption.md)*): *[RegisteredCommand](_registered_command_.registeredcommand.md)*
 
-*Defined in [registered-command.ts:40](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L40)*
+*Defined in [registered-command.ts:40](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L40)*
 
 Register an option on `this` command
 
@@ -269,7 +269,7 @@ ___
 
 ▸ **protectCommandDefinitionOrder**(`desiredStage`: *[ParseStage](../enums/_registered_command_.parsestage.md)*): *undefined | [CommandDefinitionOrderError](_registered_command_.commanddefinitionordererror.md)*
 
-*Defined in [registered-command.ts:80](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L80)*
+*Defined in [registered-command.ts:80](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L80)*
 
 **Parameters:**
 
@@ -285,7 +285,7 @@ ___
 
 ▸ **validFlagOrOptionPrefix**(`inputIndex`: *number*): *boolean*
 
-*Defined in [registered-command.ts:183](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L183)*
+*Defined in [registered-command.ts:183](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L183)*
 
 **Parameters:**
 
@@ -301,7 +301,7 @@ ___
 
 ▸ **validSpinalCase**(`name`: *string*): *boolean*
 
-*Defined in [registered-command.ts:177](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L177)*
+*Defined in [registered-command.ts:177](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L177)*
 
 **Parameters:**
 

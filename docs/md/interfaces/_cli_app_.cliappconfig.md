@@ -20,4 +20,4 @@
 
 • **defaultCommandName**? : *undefined | string*
 
-*Defined in [cli-app.ts:5](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L5)*
+*Defined in [cli-app.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L5)*

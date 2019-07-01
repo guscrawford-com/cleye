@@ -20,7 +20,7 @@ Enumeration of stages a `Command` is in
 
 • **Arguments**:
 
-*Defined in [registered-command.ts:10](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L10)*
+*Defined in [registered-command.ts:10](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L10)*
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 • **Constructing**:
 
-*Defined in [registered-command.ts:8](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L8)*
+*Defined in [registered-command.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L8)*
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 • **Options**:
 
-*Defined in [registered-command.ts:9](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L9)*
+*Defined in [registered-command.ts:9](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L9)*

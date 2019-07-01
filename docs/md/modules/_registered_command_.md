@@ -30,7 +30,7 @@
 
 • **FLG_PRFX**: *"-"* = "-"
 
-*Defined in [registered-command.ts:4](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L4)*
+*Defined in [registered-command.ts:4](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L4)*
 
 ___
 
@@ -38,4 +38,4 @@ ___
 
 • **OPTN_PRFX**: *"--"* = "--"
 
-*Defined in [registered-command.ts:4](https://github.com/guscrawford-com/cleye/blob/c919695/src/registered-command.ts#L4)*
+*Defined in [registered-command.ts:4](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/registered-command.ts#L4)*

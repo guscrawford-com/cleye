@@ -24,4 +24,4 @@
 
 • **DefaultDefaultCommandName**: *"default"* = "default"
 
-*Defined in [cli-app.ts:3](https://github.com/guscrawford-com/cleye/blob/c919695/src/cli-app.ts#L3)*
+*Defined in [cli-app.ts:3](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/cli-app.ts#L3)*
