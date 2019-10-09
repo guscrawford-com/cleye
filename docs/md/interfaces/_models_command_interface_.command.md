@@ -16,7 +16,11 @@ A further processed extension of a programmer-defined command with an assured se
 
 ## Implemented by
 
-* [RegisteredCommand](../classes/_registered_command_.registeredcommand.md)
+* [BaseCommand](../classes/_command_base_command_.basecommand.md)
+* [RegisteredCommand](../classes/_command_registered_command_.registeredcommand.md)
+* [RegisteredCommand](../classes/_command_registered_command_.registeredcommand.md)
+* [RegistersArguments](../classes/_command_regsiters_arguments_.registersarguments.md)
+* [RegistersOptions](../classes/_command_regsiters_options_.registersoptions.md)
 
 ### Index
 
@@ -35,11 +39,11 @@ A further processed extension of a programmer-defined command with an assured se
 
 • **args**: *object*
 
-*Defined in [models/command.interface.ts:14](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/command.interface.ts#L14)*
+*Defined in [models/command.interface.ts:15](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/command.interface.ts#L15)*
 
 #### Type declaration:
 
-● \[▪ **key**: *string*\]: [StaticArgument](_models_argument_interface_.staticargument.md)
+● \[▪ **key**: *string*\]: [StaticArgument](_models_argument_interface_.staticargument.md) | [Argument](_models_argument_interface_.argument.md)
 
 ___
 
@@ -51,7 +55,7 @@ ___
 
 *Overrides [StaticArgument](_models_argument_interface_.staticargument.md).[directive](_models_argument_interface_.staticargument.md#optional-directive)*
 
-*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L8)*
+*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L8)*
 
 **`deprecated`** in which order to process this argument
 
@@ -63,7 +67,7 @@ ___
 
 *Inherited from [Argument](_models_argument_interface_.argument.md).[index](_models_argument_interface_.argument.md#index)*
 
-*Defined in [models/argument.interface.ts:17](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L17)*
+*Defined in [models/argument.interface.ts:19](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L19)*
 
 The index of the argument in the command-input relative to the index of the command
 
@@ -77,7 +81,7 @@ ___
 
 *Overrides [StaticArgument](_models_argument_interface_.staticargument.md).[name](_models_argument_interface_.staticargument.md#name)*
 
-*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L10)*
+*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L10)*
 
 A name (in any form) with which to assign and reference this argument on the `<command>.args` table
 
@@ -87,11 +91,11 @@ ___
 
 • **options**: *object*
 
-*Defined in [models/command.interface.ts:13](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/command.interface.ts#L13)*
+*Defined in [models/command.interface.ts:14](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/command.interface.ts#L14)*
 
 #### Type declaration:
 
-● \[▪ **key**: *string*\]: [StaticOption](_models_option_interface_.staticoption.md)
+● \[▪ **key**: *string*\]: [StaticOption](_models_option_interface_.staticoption.md) | [Option](_models_option_interface_.option.md)
 
 ___
 
@@ -99,8 +103,10 @@ ___
 
 • **value**? : *undefined | string*
 
-*Inherited from [Argument](_models_argument_interface_.argument.md).[value](_models_argument_interface_.argument.md#optional-value)*
+*Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[value](_models_argument_interface_.staticargument.md#optional-value)*
 
-*Defined in [models/argument.interface.ts:19](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L19)*
+*Overrides [StaticArgument](_models_argument_interface_.staticargument.md).[value](_models_argument_interface_.staticargument.md#optional-value)*
+
+*Defined in [models/argument.interface.ts:12](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L12)*
 
 The possible value of the argument if provided

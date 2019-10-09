@@ -33,7 +33,7 @@ A further processed extension of a programmer-defined argument with an assured *
 
 *Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[directive](_models_argument_interface_.staticargument.md#optional-directive)*
 
-*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L8)*
+*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L8)*
 
 **`deprecated`** in which order to process this argument
 
@@ -43,7 +43,7 @@ ___
 
 • **index**: *number*
 
-*Defined in [models/argument.interface.ts:17](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L17)*
+*Defined in [models/argument.interface.ts:19](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L19)*
 
 The index of the argument in the command-input relative to the index of the command
 
@@ -55,7 +55,7 @@ ___
 
 *Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[name](_models_argument_interface_.staticargument.md#name)*
 
-*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L10)*
+*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L10)*
 
 A name (in any form) with which to assign and reference this argument on the `<command>.args` table
 
@@ -65,6 +65,8 @@ ___
 
 • **value**? : *undefined | string*
 
-*Defined in [models/argument.interface.ts:19](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L19)*
+*Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[value](_models_argument_interface_.staticargument.md#optional-value)*
+
+*Defined in [models/argument.interface.ts:12](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L12)*
 
 The possible value of the argument if provided

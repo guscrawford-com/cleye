@@ -25,7 +25,7 @@
     "package": "yarn build && yarn docs && cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
     "build": "rimraf dist && tsc",
     "build:test": "tsc -p tsconfig.jasmine.json",
-    "build:examples": "rimraf dist/examples && tsc -p tsconfig.examples.json",
+    "build:examples": "rimraf examples/bin && tsc -p tsconfig.examples.json",
     "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\"",
     "release": "yarn package && cd dist && yarn publish --access=public"
   }

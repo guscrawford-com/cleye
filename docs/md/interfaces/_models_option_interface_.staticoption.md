@@ -22,6 +22,7 @@ The fundamental programmer-provided definition of an option a `Command` can rece
 * [flag](_models_option_interface_.staticoption.md#optional-flag)
 * [name](_models_option_interface_.staticoption.md#name)
 * [spinalCaseName](_models_option_interface_.staticoption.md#spinalcasename)
+* [value](_models_option_interface_.staticoption.md#optional-value)
 
 ## Properties
 
@@ -31,7 +32,7 @@ The fundamental programmer-provided definition of an option a `Command` can rece
 
 *Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[directive](_models_argument_interface_.staticargument.md#optional-directive)*
 
-*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L8)*
+*Defined in [models/argument.interface.ts:8](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L8)*
 
 **`deprecated`** in which order to process this argument
 
@@ -41,7 +42,7 @@ ___
 
 • **flag**? : *undefined | string*
 
-*Defined in [models/option.interface.ts:7](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/option.interface.ts#L7)*
+*Defined in [models/option.interface.ts:7](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/option.interface.ts#L7)*
 
 An optional alias (intended to be a short-hand or single character) matched with a `-` prefix
 
@@ -53,7 +54,7 @@ ___
 
 *Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[name](_models_argument_interface_.staticargument.md#name)*
 
-*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L10)*
+*Defined in [models/argument.interface.ts:10](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L10)*
 
 A name (in any form) with which to assign and reference this argument on the `<command>.args` table
 
@@ -63,6 +64,18 @@ ___
 
 • **spinalCaseName**: *string*
 
-*Defined in [models/option.interface.ts:5](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/option.interface.ts#L5)*
+*Defined in [models/option.interface.ts:5](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/option.interface.ts#L5)*
 
 The *spinal-case* form of the option name to appear in *camelCase* on the `<command>.options` table; both of which are matched on the command-line following the `--` prefix
+
+___
+
+### `Optional` value
+
+• **value**? : *undefined | string*
+
+*Inherited from [StaticArgument](_models_argument_interface_.staticargument.md).[value](_models_argument_interface_.staticargument.md#optional-value)*
+
+*Defined in [models/argument.interface.ts:12](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L12)*
+
+The possible value of the argument if provided

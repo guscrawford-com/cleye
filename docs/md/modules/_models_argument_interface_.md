@@ -21,6 +21,6 @@
 
 Ƭ **ArgumentDirective**: *"next" | "last"*
 
-*Defined in [models/argument.interface.ts:4](https://github.com/guscrawford-com/cleye/blob/6a04a70/src/models/argument.interface.ts#L4)*
+*Defined in [models/argument.interface.ts:4](https://github.com/guscrawford-com/cleye/blob/ffc0fee/src/models/argument.interface.ts#L4)*
 
 **`deprecated`** in which order to process this argument
