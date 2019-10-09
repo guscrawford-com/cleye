@@ -30,7 +30,7 @@ let app = new CliApp({
                 arguments:{
                     name:'template'
                 },
-                runs: command
+                run: command
             }
         }
     }
