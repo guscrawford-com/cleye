@@ -8,6 +8,8 @@ export interface StaticArgument {
     directive?:ArgumentDirective;
     /** A name (in any form) with which to assign and reference this argument on the `<command>.args` table */
     name:string;
+    /** The possible value of the argument if provided */
+    value?:string;
 }
 
 
@@ -15,6 +17,4 @@ export interface StaticArgument {
 export interface Argument extends StaticArgument {
     /** The index of the argument in the command-input relative to the index of the command */
     index:number;
-    /** The possible value of the argument if provided */
-    value?:string;
 }

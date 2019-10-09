@@ -28,3 +28,32 @@ Initial draft of cleye released!
 ## 0.0.3-beta
 ### Jun 30 2019
 #### Correct issues with certain command / arg definition approaches; add documentation
+
+----
+
+## 1.0.0
+### Oct 9 2019
+#### Broad clean-up
+
+Add simpler syntax for defining a CLI app as illustrated
+
+```
+new CliApp(
+    {
+        commands:{
+            default:{
+                name:'default',
+                options: {
+                    verbose:{
+                        spinalCaseName:'verbose',
+                        flag:'v'
+                    }
+                },
+                run:(app:CliApp)=>{
+                    /* magic */
+                }
+            }
+        }
+    }
+)
+```
