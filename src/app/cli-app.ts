@@ -28,6 +28,8 @@ export class CliApp {
         protected options?:CliAppConfig,
         protected args?:string[]
     ) {
+        let runIsSatisfied = false;
+        let defaultCommand: RegisteredCommand|undefined = undefined;
         if (!args) this.args = args = process.argv.slice(0);
         this.nodeRuntime = args.shift() || this.nodeRuntime;
         this.binRuntime = args.shift() || this.binRuntime;
@@ -35,13 +37,21 @@ export class CliApp {
         if (!options.defaultCommandName) options.defaultCommandName = DefaultDefaultCommandName;
         if (typeof options.runAsSatisfied === 'undefined') options.runAsSatisfied = true;
         Object.keys(options.commands || {}).forEach(commandDef=>{
-            let registerdCommand = this.command((this.options as any).commands[commandDef]);
+            let staticCommand = (this.options as any).commands[commandDef];
+            let registerdCommand = this.command(staticCommand);
+            if (registerdCommand.name === (options as CliAppConfig).defaultCommandName)
+                defaultCommand = registerdCommand;
             if (
-                (registerdCommand.index !== -1 || registerdCommand.name === (options as CliAppConfig).defaultCommandName)
+                (registerdCommand.index !== -1)
                 && (options as CliAppConfig).runAsSatisfied
                 && typeof registerdCommand.run === 'function'
-            ) registerdCommand.run(this);
+            ) {
+                runIsSatisfied = true;
+                registerdCommand.run(this);
+            }
         });
+        if (defaultCommand && !runIsSatisfied)
+            ((defaultCommand as RegisteredCommand).run as (app:CliApp)=>any)(this);
     }
 
     /**
