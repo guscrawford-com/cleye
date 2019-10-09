@@ -1,9 +1,0 @@
-{
-    "name": "examples",
-    "dependencies": {
-        "@guscrawford.com/cleye": "../dist"
-    },
-    "devDependencies": {
-    "@types/node": "8"
-    }
-}

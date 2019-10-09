@@ -1,6 +1,6 @@
 {
   "name": "@guscrawford.com/cleye",
-  "version": "0.0.3-beta",
+  "version": "1.0.0",
   "description": "An unopinionated cli library",
   "main": "index.js",
   "repository": "https://github.com/guscrawford-com/cleye.git",
@@ -20,13 +20,12 @@
   "scripts": {
     "docs:markdown":"rimraf docs/md && typedoc ./src --theme markdown --out docs/md",
     "docs:html": "rimraf docs/html && typedoc ./src --out docs/html",
-    "install":"cd examples && yarn install",
     "docs": "rimraf docs && yarn docs:markdown && yarn docs:html",
-    "package": "yarn build && yarn docs && cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
     "build": "rimraf dist && tsc",
     "build:test": "tsc -p tsconfig.jasmine.json",
-    "build:examples": "rimraf dist/examples && tsc -p tsconfig.examples.json",
+    "build:examples": "rimraf examples/bin && tsc -p tsconfig.examples.json",
     "test": "yarn build:test && jasmine \"test/**/*[sS]pec.js\"",
+    "package": "yarn build && yarn docs && cpy README.md dist && cpy CHANGELOG.md dist && cpy package.lib.json dist && renamer --find .lib dist/*.json",
     "release": "yarn package && cd dist && yarn publish --access=public"
   }
 }

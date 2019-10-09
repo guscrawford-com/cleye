@@ -4,3 +4,4 @@ test
 docs/html
 **/*.log
 examples/bin
+docs
